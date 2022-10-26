@@ -9,18 +9,22 @@
 #include <sstream>
 using namespace std;
 
-//ONLY SOLVING FOR SUBTASK 1 and 2
 int main()
 {
-    unordered_map<char, int>mumgay;
-    int N; cin >> N;
-    for (int i = 0 ; i < N; i++){
+    unordered_map<string, int>freq;
+    int N; cin>> N;
+    for (int i = 0 ; i < N; i ++){
         string K; cin >> K;
-        mumgay[K[0]] ++;
+        long a = K.size();
+        for (long j = 0; j < a; j++){
+            freq[K] ++;
+            K.erase(K.size()-1);
+        }
     }
-    int J; cin>> J;
-    for ( int i = 0; i < J; i++){
-        char L; cin >> L;
-        cout << mumgay[L] << endl;
+    
+    int P; cin >> P;
+    for (int i = 0; i < P ; i++){
+        string L; cin >> L;
+        cout << freq[L]<<endl ;
     }
 }
